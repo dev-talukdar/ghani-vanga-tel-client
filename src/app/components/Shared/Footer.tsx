@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import logo from '../../../../public/white.png';
-import { MdOutlineEmail, MdLocalPhone, MdLocationOn } from 'react-icons/md';
-import Link from 'next/link';
+import Image from "next/image";
+import logo from "../../../../public/white.png";
+import { MdOutlineEmail, MdLocalPhone, MdLocationOn } from "react-icons/md";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -34,7 +34,7 @@ const Footer = () => {
             <Link href="/contact">
               <p className="mt-6 hover:text-teal-600">Contact Us</p>
             </Link>
-            <Link href="/about-us">
+            <Link href="/privacy-policy">
               <p className=" hover:text-teal-600">Privacy Policy</p>
             </Link>
             <Link href="/terms-and-conditions">
@@ -61,9 +61,9 @@ const Footer = () => {
         <div className="flex text-center justify-between px-4 mt-1 italic">
           <p className="text-xs">Copyright 2020-2028 &#169; Beacon Insight</p>
           <p className="text-xs ">
-            This website developed and maintained by{' '}
+            This website developed and maintained by{" "}
             <Link href="/hire-me">
-              {' '}
+              {" "}
               <span className="text-yellow-500 italic underline">
                 Muhammad Abdullah Talukdar
               </span>

@@ -1,7 +1,7 @@
-'use client';
-import { easeInOut, motion } from 'framer-motion';
-import Link from 'next/link';
-import { VscDebugStart } from 'react-icons/vsc';
+"use client";
+import { easeInOut, motion } from "framer-motion";
+import Link from "next/link";
+import { VscDebugStart } from "react-icons/vsc";
 
 const Banner = () => {
   const intro = {
@@ -35,7 +35,7 @@ const Banner = () => {
         y: {
           duration: 2,
           repeat: Infinity,
-          repeatType: 'reverse',
+          repeatType: "reverse",
           ease: easeInOut,
         },
       },
@@ -45,7 +45,7 @@ const Banner = () => {
   return (
     <div
       className=" bg-cover lg:min-h-screen bg-center bg-no-repeat"
-      style={{ backgroundImage: 'url(/images/a.webp)' }}
+      style={{ backgroundImage: "url(/images/a.webp)" }}
     >
       <div className="w-full max-w-[1200px]  mx-auto grid grid-cols-1 lg:grid-cols-2 place-content-center   px-5">
         <motion.div

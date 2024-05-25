@@ -1,13 +1,13 @@
-'use client';
-import MemberUpdateModal from '@/app/components/Dashboard/MemberUpdateModal';
-import QueryModal from '@/app/components/Dashboard/QueryModal';
+"use client";
+import MemberUpdateModal from "@/app/components/Dashboard/MemberUpdateModal";
+import QueryModal from "@/app/components/Dashboard/QueryModal";
 import {
   useDeleteMemberMutation,
   useGetAllTeamMemberQuery,
-} from '@/redux/features/team/teamApi';
-import React from 'react';
-import { FaTrash } from 'react-icons/fa';
-import Swal from 'sweetalert2';
+} from "@/redux/features/team/teamApi";
+import React from "react";
+import { FaTrash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 type TTeam = {
   _id: string;
@@ -30,20 +30,20 @@ const AllMembers = () => {
 
   const handleDelete = (id: string) => {
     Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "You won't be able to revert this!",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
         await deleteUser(id);
         Swal.fire({
-          title: 'Deleted!',
-          text: 'User has been deleted.',
-          icon: 'success',
+          title: "Deleted!",
+          text: "User has been deleted.",
+          icon: "success",
         });
       }
     });

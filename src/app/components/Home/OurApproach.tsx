@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import ourApproach from '../../../../public/images/ourApproach.webp';
-import Link from 'next/link';
+import Image from "next/image";
+import ourApproach from "../../../../public/images/ourApproach.webp";
+import Link from "next/link";
 
 const OurApproach = () => {
   return (
@@ -26,12 +26,12 @@ const OurApproach = () => {
               opportunities and achieve sustained success.
             </p>
             <Link href="/contact">
-            <button className="mt-8 btn btn-wide mb-6 px-5 py-2.5 relative rounded group overflow-hidden font-medium bg-gray-600 text-white inline-block">
-              <span className="absolute bottom-0 left-0 flex w-full h-0 mt-0 transition-all duration-500 ease-out transform translate-y-0 bg-gray-200 group-hover:h-full "></span>
-              <span className="relative group-hover:text-black font-bold flex items-center gap-4 justify-center">
-                Request Free Consultation
-              </span>
-            </button>
+              <button className="mt-8 btn btn-wide mb-6 px-5 py-2.5 relative rounded group overflow-hidden font-medium bg-gray-600 text-white inline-block">
+                <span className="absolute bottom-0 left-0 flex w-full h-0 mt-0 transition-all duration-500 ease-out transform translate-y-0 bg-gray-200 group-hover:h-full "></span>
+                <span className="relative group-hover:text-black font-bold flex items-center gap-4 justify-center">
+                  Request Free Consultation
+                </span>
+              </button>
             </Link>
           </div>
 

@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import React from 'react';
-import { IoHome } from 'react-icons/io5';
-import { MdOutlineMailOutline } from 'react-icons/md';
+import Link from "next/link";
+import React from "react";
+import { IoHome } from "react-icons/io5";
+import { MdOutlineMailOutline } from "react-icons/md";
 
 const ErrorPage = () => {
   return (

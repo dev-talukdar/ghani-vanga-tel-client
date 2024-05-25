@@ -1,15 +1,15 @@
-'use client';
-import { useGetAllReviewQuery } from '@/redux/features/reviewApi/reviewApi';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import Loader from '../Shared/Loader/Loader';
-import { Rating } from '@smastrom/react-rating';
-import Image from 'next/image';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import '@smastrom/react-rating/style.css';
+"use client";
+import { useGetAllReviewQuery } from "@/redux/features/reviewApi/reviewApi";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import Loader from "../Shared/Loader/Loader";
+import { Rating } from "@smastrom/react-rating";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "@smastrom/react-rating/style.css";
 
 type TReviews = {
   _id: string;
@@ -30,7 +30,7 @@ const Testimonial = () => {
   }
   return (
     <div className="w-full max-w-[1200px] mx-auto my-16">
-      <p className="my-16 text-center text-6xl font-bold text-slate-600">
+      <p className="my-16 text-center text-3xl md:text-6xl font-bold text-slate-600">
         Words of Praise and Trust
       </p>
 
@@ -85,7 +85,7 @@ const Testimonial = () => {
                     {reviews.clientName}
                   </p>
                   <p className="font-medium text-slate-600">
-                    {reviews.clientDesignation} at{' '}
+                    {reviews.clientDesignation} at{" "}
                     <span className="text-orange-400 font-semibold">
                       {reviews.clientOrganization}
                     </span>

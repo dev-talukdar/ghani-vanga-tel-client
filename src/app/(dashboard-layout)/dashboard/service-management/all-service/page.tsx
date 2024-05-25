@@ -1,10 +1,10 @@
-'use client';
+"use client";
 import {
   useDeleteServiceMutation,
   useGetAllServiceQuery,
-} from '@/redux/features/serviceApi/serviceApi';
-import { FaTrash } from 'react-icons/fa';
-import Swal from 'sweetalert2';
+} from "@/redux/features/serviceApi/serviceApi";
+import { FaTrash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 type TService = {
   _id: string;
@@ -24,20 +24,20 @@ const AllServicesPage = () => {
 
   const handleDelete = (id: string) => {
     Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "You won't be able to revert this!",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
         await deleteUser(id);
         Swal.fire({
-          title: 'Deleted!',
-          text: 'Service has been deleted.',
-          icon: 'success',
+          title: "Deleted!",
+          text: "Service has been deleted.",
+          icon: "success",
         });
       }
     });

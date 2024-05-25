@@ -1,8 +1,8 @@
-import upwork from '../../../../public/images/hireMe/upwork.webp';
-import fiverr from '../../../../public/images/hireMe/fiverr.webp';
-import freelancer from '../../../../public/images/hireMe/freelancer.webp';
-import Image from 'next/image';
-import Link from 'next/link';
+import upwork from "../../../../public/images/hireMe/upwork.webp";
+import fiverr from "../../../../public/images/hireMe/fiverr.webp";
+import freelancer from "../../../../public/images/hireMe/freelancer.webp";
+import Image from "next/image";
+import Link from "next/link";
 
 const HireMePage = () => {
   return (

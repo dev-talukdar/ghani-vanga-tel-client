@@ -1,10 +1,10 @@
-import type { Metadata } from 'next';
-import Sidebar from '../components/Shared/Sidebar';
-import ProtectedRoute from '@/utils/ProtectedRoute';
+import type { Metadata } from "next";
+import Sidebar from "../components/Shared/Sidebar";
+import ProtectedRoute from "@/utils/ProtectedRoute";
 
 export const metadata: Metadata = {
-  title: 'Dashboard Beacon Insight',
-  description: 'Beacon Insight App',
+  title: "Dashboard Beacon Insight",
+  description: "Beacon Insight App",
 };
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {

@@ -1,8 +1,8 @@
-'use client';
-import { useRegisterMutation } from '@/redux/features/register/registerApi';
-import React from 'react';
-import { FieldValues, useForm } from 'react-hook-form';
-import { toast } from 'sonner';
+"use client";
+import { useRegisterMutation } from "@/redux/features/register/registerApi";
+import React from "react";
+import { FieldValues, useForm } from "react-hook-form";
+import { toast } from "sonner";
 const image_upload_token = process.env.NEXT_PUBLIC_image_upload_token;
 
 const CreateAccount = () => {
@@ -11,12 +11,12 @@ const CreateAccount = () => {
   const image_upload_url = `https://api.imgbb.com/1/upload?key=${image_upload_token}`;
 
   const onSubmit = (data: FieldValues) => {
-    const toastId = toast.loading('Creating account...');
+    const toastId = toast.loading("Creating account...");
 
     const formData = new FormData();
-    formData.append('image', data.profilePhoto[0]);
+    formData.append("image", data.profilePhoto[0]);
     fetch(image_upload_url, {
-      method: 'POST',
+      method: "POST",
       body: formData,
     })
       .then((res) => res.json())
@@ -36,14 +36,14 @@ const CreateAccount = () => {
                 duration: 2000,
               });
             } else {
-              toast.success('Account Created!', {
+              toast.success("Account Created!", {
                 id: toastId,
                 duration: 2000,
               });
               reset();
             }
           } catch (error) {
-            toast.error('Something went wrong', {
+            toast.error("Something went wrong", {
               id: toastId,
               duration: 2000,
             });
@@ -58,19 +58,19 @@ const CreateAccount = () => {
       <form className="lg:pe-10" onSubmit={handleSubmit(onSubmit)}>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3 my-5 ">
           <input
-            {...register('name')}
+            {...register("name")}
             className="w-full bg-[#f8f8f8] border border-slate-300 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Your Name"
           />
           <input
-            {...register('email')}
+            {...register("email")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Your Email"
           />
           <input
-            {...register('password')}
+            {...register("password")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Password"
@@ -78,13 +78,13 @@ const CreateAccount = () => {
         </div>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 my-5">
           <input
-            {...register('designation')}
+            {...register("designation")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Designation"
           />
           <input
-            {...register('profilePhoto')}
+            {...register("profilePhoto")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="file"
             placeholder="Select profile photo"

@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { BsFacebook, BsTwitterX, BsLinkedin } from 'react-icons/bs';
+import Link from "next/link";
+import { BsFacebook, BsTwitterX, BsLinkedin } from "react-icons/bs";
 
 const TeamSocialMedia = () => {
   return (

@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import React from 'react';
-import AboutImg from '../../../../public/images/working-accountantd.webp';
+import Image from "next/image";
+import React from "react";
+import AboutImg from "../../../../public/images/working-accountantd.webp";
 
 const About = () => {
   return (

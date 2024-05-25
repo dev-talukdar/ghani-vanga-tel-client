@@ -1,28 +1,28 @@
-import { baseApi } from '../../api/baseApi';
+import { baseApi } from "../../api/baseApi";
 
 const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
       query: (userInfo) => ({
-        url: '/users/login',
-        method: 'POST',
+        url: "/users/login",
+        method: "POST",
         body: userInfo,
       }),
-      invalidatesTags: ['users'],
+      invalidatesTags: ["users"],
     }),
     getAllUser: builder.query({
       query: () => ({
         url: `/users`,
-        method: 'GET',
+        method: "GET",
       }),
-      providesTags: ['users'],
+      providesTags: ["users"],
     }),
     deleteUser: builder.mutation({
       query: (id) => ({
         url: `/users/${id}`,
-        method: 'DELETE',
+        method: "DELETE",
       }),
-      invalidatesTags: ['users'],
+      invalidatesTags: ["users"],
     }),
   }),
 });

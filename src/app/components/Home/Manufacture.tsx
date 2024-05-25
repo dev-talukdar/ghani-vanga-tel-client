@@ -1,8 +1,8 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import { FaMapMarkedAlt } from 'react-icons/fa';
-import { FaUsers, FaAward } from 'react-icons/fa6';
-import { MdDesignServices } from 'react-icons/md';
+"use client";
+import React, { useEffect, useState } from "react";
+import { FaMapMarkedAlt } from "react-icons/fa";
+import { FaUsers, FaAward } from "react-icons/fa6";
+import { MdDesignServices } from "react-icons/md";
 
 type TNumber = {
   initialValue: number;
@@ -28,7 +28,7 @@ const Manufacture = () => {
   return (
     <div className=" bg-mobileMenu text-white  py-20">
       <div className="w-full max-w-[1200px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 pt-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 pt-10">
           <div className="text-center flex flex-col items-center pb-8 lg:pb-0">
             <div className="border p-3 text-[#fefefe]">
               <FaMapMarkedAlt className="size-12" />

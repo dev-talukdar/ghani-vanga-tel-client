@@ -1,11 +1,11 @@
-'use client';
-import Image from 'next/image';
-import React from 'react';
-import TeamMember from '../../../../../public/images/team-img04.jpg';
-import { FaCheck } from 'react-icons/fa6';
-import { FaAward, FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
-import { useGetMemberQuery } from '@/redux/features/team/teamApi';
-import Link from 'next/link';
+"use client";
+import Image from "next/image";
+import React from "react";
+import TeamMember from "../../../../../public/images/team-img04.jpg";
+import { FaCheck } from "react-icons/fa6";
+import { FaAward, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { useGetMemberQuery } from "@/redux/features/team/teamApi";
+import Link from "next/link";
 
 const TeamDetails = ({ params }: any) => {
   const { data: member } = useGetMemberQuery(params.id);
@@ -33,15 +33,15 @@ const TeamDetails = ({ params }: any) => {
             <div className="lg:flex flex-row gap-16">
               <div className="flex flex-col w-full lg:w-1/2 justify-center">
                 <div className="flex items-center  gap-2 ">
-                  <FaCheck className="text-red-600" />{' '}
+                  <FaCheck className="text-red-600" />{" "}
                   <p>Lorem ipsum dolor sit amet</p>
                 </div>
                 <div className="flex items-center  gap-2 my-4">
-                  <FaCheck className="text-red-600" />{' '}
+                  <FaCheck className="text-red-600" />{" "}
                   <p>Sodales neque sodales ut etiam amet nisl </p>
                 </div>
                 <div className="flex items-center gap-2 ">
-                  <FaCheck className="text-red-600" />{' '}
+                  <FaCheck className="text-red-600" />{" "}
                   <p>Neque convallis a cras semper auctor.</p>
                 </div>
               </div>
@@ -56,7 +56,7 @@ const TeamDetails = ({ params }: any) => {
                       className={`transition-width flex justify-center items-center mr-auto h-full w-0 rounded-full  bg-red-600 duration-500`}
                     >
                       <span className="font-medium  text-center text-white">
-                        {' '}
+                        {" "}
                         {70} %
                       </span>
                     </div>
@@ -72,7 +72,7 @@ const TeamDetails = ({ params }: any) => {
                       className={`transition-width flex justify-center items-center mr-auto h-full w-0 rounded-full  bg-red-600 duration-500`}
                     >
                       <span className="font-medium  text-center text-white">
-                        {' '}
+                        {" "}
                         {70} %
                       </span>
                     </div>
@@ -156,7 +156,7 @@ const TeamDetails = ({ params }: any) => {
                 <textarea
                   placeholder="Your Message"
                   className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                  defaultValue={''}
+                  defaultValue={""}
                 />
               </div>
               <div className="my-2 w-full">
@@ -197,7 +197,7 @@ const TeamDetails = ({ params }: any) => {
                 <Link
                   target="_blank"
                   className="text-blue-600 underline"
-                  href={member?.data?.socialLink || ''}
+                  href={member?.data?.socialLink || ""}
                 >
                   {member?.data?.socialLink}
                 </Link>

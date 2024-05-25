@@ -1,9 +1,9 @@
-'use client';
-import { useUpdateMemberMutation } from '@/redux/features/team/teamApi';
-import React, { useState } from 'react';
-import { FieldValues, useForm } from 'react-hook-form';
-import { FaPenAlt } from 'react-icons/fa';
-import { toast } from 'sonner';
+"use client";
+import { useUpdateMemberMutation } from "@/redux/features/team/teamApi";
+import React, { useState } from "react";
+import { FieldValues, useForm } from "react-hook-form";
+import { FaPenAlt } from "react-icons/fa";
+import { toast } from "sonner";
 
 type TTeam = {
   _id: string;
@@ -22,7 +22,7 @@ const MemberUpdateModal = ({ member }: { member: TTeam }) => {
   const [updateMember] = useUpdateMemberMutation();
 
   const onSubmit = async (data: FieldValues) => {
-    const toastId = toast.loading('Creating member...');
+    const toastId = toast.loading("Creating member...");
     const updatedData = {
       id: member._id,
       updatedData: data,
@@ -36,14 +36,14 @@ const MemberUpdateModal = ({ member }: { member: TTeam }) => {
           duration: 2000,
         });
       } else {
-        toast.success('Designation Updated!', {
+        toast.success("Designation Updated!", {
           id: toastId,
           duration: 2000,
         });
         reset();
       }
     } catch (error) {
-      toast.error('Something went wrong', {
+      toast.error("Something went wrong", {
         id: toastId,
         duration: 2000,
       });
@@ -60,14 +60,14 @@ const MemberUpdateModal = ({ member }: { member: TTeam }) => {
       </button>
       <div
         className={`fixed z-[100] flex items-center justify-center ${
-          openModal ? 'opacity-1 visible' : 'invisible opacity-0'
+          openModal ? "opacity-1 visible" : "invisible opacity-0"
         } inset-0 bg-black/20 backdrop-blur-sm duration-100`}
       >
         <div
           className={`absolute w-[500px] h-[300px] rounded-lg bg-white p-3 pb-5 text-center drop-shadow-2xl dark:bg-gray-800 dark:text-white ${
             openModal
-              ? 'scale-1 opacity-1 duration-300'
-              : 'scale-0 opacity-0 duration-150'
+              ? "scale-1 opacity-1 duration-300"
+              : "scale-0 opacity-0 duration-150"
           } `}
         >
           <svg
@@ -88,7 +88,7 @@ const MemberUpdateModal = ({ member }: { member: TTeam }) => {
           </h1>
           <form className="my-10" onSubmit={handleSubmit(onSubmit)}>
             <input
-              {...register('designation')}
+              {...register("designation")}
               className="w-full bg-[#f8f8f8] text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
               type="text"
               defaultValue={member?.designation}

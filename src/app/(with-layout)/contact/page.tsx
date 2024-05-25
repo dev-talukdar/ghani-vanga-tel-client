@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useCreateQueryMutation } from '@/redux/features/query/queryApi';
-import React from 'react';
-import { FieldValues, useForm } from 'react-hook-form';
-import { FaEnvelope } from 'react-icons/fa';
-import { FaLocationDot } from 'react-icons/fa6';
-import { toast } from 'sonner';
+import { useCreateQueryMutation } from "@/redux/features/query/queryApi";
+import React from "react";
+import { FieldValues, useForm } from "react-hook-form";
+import { FaEnvelope } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { toast } from "sonner";
 
 const ContactPage = () => {
   const [sendQuery] = useCreateQueryMutation();
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data: FieldValues) => {
-    const toastId = toast.loading('Sending message...');
+    const toastId = toast.loading("Sending message...");
     const phoneNo = Number(data.phoneNo);
     const queryData = {
       ...data,
@@ -28,14 +28,14 @@ const ContactPage = () => {
           duration: 2000,
         });
       } else {
-        toast.success('Message send successful!', {
+        toast.success("Message send successful!", {
           id: toastId,
           duration: 2000,
         });
         reset();
       }
     } catch (error) {
-      toast.error('Something went wrong', { id: toastId, duration: 2000 });
+      toast.error("Something went wrong", { id: toastId, duration: 2000 });
     }
   };
 
@@ -48,27 +48,27 @@ const ContactPage = () => {
               Contact <span className="font-bold">Form</span>
             </h1>
             <p>
-              Feel free to contact us through{' '}
-              <span className="text-red-600">Twitter</span> or{' '}
+              Feel free to contact us through{" "}
+              <span className="text-red-600">Twitter</span> or{" "}
               <span className="text-red-600">Facebook</span> if you prefer.
             </p>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-3 mt-5">
               <input
-                {...register('name')}
+                {...register("name")}
                 className="w-full bg-[#f8f8f8] text-gray-900 border border-slate-300 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
                 type="text"
                 placeholder="Your Name"
               />
               <input
-                {...register('email')}
+                {...register("email")}
                 className="w-full bg-[#f8f8f8] text-gray-900 border border-slate-300 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
                 type="text"
                 placeholder="Your Email"
               />
               <input
-                {...register('phoneNo')}
+                {...register("phoneNo")}
                 className="w-full bg-[#f8f8f8] text-gray-900 border border-slate-300 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
                 type="text"
                 placeholder="Phone Number"
@@ -76,13 +76,13 @@ const ContactPage = () => {
             </div>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
               <input
-                {...register('companyName')}
+                {...register("companyName")}
                 className="w-full bg-[#f8f8f8] text-gray-900 border border-slate-300 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
                 type="text"
                 placeholder="Company Name*"
               />
               <input
-                {...register('subject')}
+                {...register("subject")}
                 className="w-full bg-[#f8f8f8] text-gray-900 border border-slate-300 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
                 type="text"
                 placeholder="Subject"
@@ -90,10 +90,10 @@ const ContactPage = () => {
             </div>
             <div className="my-4">
               <textarea
-                {...register('message')}
+                {...register("message")}
                 placeholder="Message"
                 className="w-full h-44 bg-[#f8f8f8] text-gray-900 border border-slate-300 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                defaultValue={''}
+                defaultValue={""}
               />
             </div>
             <div className="text-center my-10 flex justify-center items-center">

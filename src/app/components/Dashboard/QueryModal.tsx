@@ -1,5 +1,10 @@
-'use client';
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
+import { MdClose } from "react-icons/md";
+import { FaTrashAlt } from "react-icons/fa";
+import { useDeleteQueryMutation } from "@/redux/features/query/queryApi";
+import Swal from "sweetalert2";
+
 type TQuery = {
   _id: string;
   name: string;
@@ -19,9 +24,31 @@ type TProps = {
 };
 
 const QueryModal: React.FC<TProps> = ({ queries, currentIndex, onClose }) => {
-  console.log(queries);
+  const [deleteQuery] = useDeleteQueryMutation();
   const [currentQueryIndex, setCurrentQueryIndex] =
     useState<number>(currentIndex);
+
+    // delete actions starts from here 
+    const handleDelete = (id: string) => {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          await deleteQuery(id);
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your query has been deleted.",
+            icon: "success",
+          });
+        }
+      });
+    };
 
   const handleNext = () => {
     setCurrentQueryIndex((prevIndex) =>
@@ -46,19 +73,13 @@ const QueryModal: React.FC<TProps> = ({ queries, currentIndex, onClose }) => {
         <div
           className={`w-[1400px] h-[700px] text-left rounded-lg bg-white  p-8 drop-shadow-2xl dark:bg-gray-800 dark:text-white relative flex flex-col`}
         >
-          <svg
-            onClick={onClose}
-            className="mx-auto mr-0 w-8 cursor-pointer fill-black dark:fill-white"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g strokeWidth="0"></g>
-            <g strokeLinecap="round" strokeLinejoin="round"></g>
-            <g>
-              <path d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z"></path>
-            </g>
-          </svg>
+          <div className="flex justify-end">
+            <div className="flex justify-between gap-4">
+          <FaTrashAlt  onClick={() => handleDelete(query._id)} className="text-3xl font-bold text-white cursor-pointer bg-red-600 rounded-md p-1" />
+          <MdClose onClick={onClose} className="text-3xl font-bold text-white cursor-pointer bg-indigo-600 rounded-md p-1" />
+          </div>
+          </div>
+
           <h1 className="mb-2 text-2xl font-medium">{query?.subject}</h1>
           <div className="flex items-center my-3">
             <h3 className="text-md font-semibold">{query?.name}</h3>
@@ -68,7 +89,7 @@ const QueryModal: React.FC<TProps> = ({ queries, currentIndex, onClose }) => {
             Phone No : <span className="font-semibold">{query?.phoneNo}</span>
           </p>
           <p className="px-1 mb-3 text-md opacity-80">
-            Company Name :{' '}
+            Company Name :{" "}
             <span className="font-semibold">{query?.companyName}</span>
           </p>
           <hr />

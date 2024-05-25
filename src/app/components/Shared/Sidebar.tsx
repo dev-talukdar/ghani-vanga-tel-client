@@ -1,8 +1,8 @@
-'use client';
-import { logout, selectCurrentUser } from '@/redux/features/auth/authSlice';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import Image from 'next/image';
-import React, { useState } from 'react';
+"use client";
+import { logout, selectCurrentUser } from "@/redux/features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import Image from "next/image";
+import React, { useState } from "react";
 import {
   FaArchive,
   FaArrowRight,
@@ -11,13 +11,14 @@ import {
   FaHome,
   FaUserPlus,
   FaUsers,
-} from 'react-icons/fa';
-import { FaMessage, FaPeopleRoof, FaUsersGear, FaX } from 'react-icons/fa6';
-import profilePhoto from '../../../../public/images/team-img04.jpg';
-import { toast } from 'sonner';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
+} from "react-icons/fa";
+import { GrServices } from "react-icons/gr";
+import { FaMessage, FaPeopleRoof, FaUsersGear, FaX } from "react-icons/fa6";
+import profilePhoto from "../../../../public/images/team-img04.jpg";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -28,10 +29,10 @@ const Sidebar = () => {
 
   // logout user
   const handleLogout = () => {
-    const toastId = toast.loading('loading...');
+    const toastId = toast.loading("loading...");
     dispatch(logout());
-    router.push('/login');
-    toast.success('Logged out', { id: toastId, duration: 2000 });
+    router.push("/login");
+    toast.success("Logged out", { id: toastId, duration: 2000 });
   };
 
   // toggle sidebar
@@ -80,7 +81,7 @@ const Sidebar = () => {
               className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
               onClick={() => toggleDropdown(0)}
             >
-              <FaEnvelopeOpen />
+              <FaEnvelopeOpen className="text-2xl" />
               <div className="flex justify-between w-full items-center">
                 <span className="text-[15px] ml-4 text-gray-200 font-bold">
                   Inbox Management
@@ -111,14 +112,14 @@ const Sidebar = () => {
               </div>
             )}
           </div>
-          {user && user.role === 'superAdmin' && (
+          {user && user.role === "superAdmin" && (
             <>
               <div>
                 <div
                   className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
                   onClick={() => toggleDropdown(1)}
                 >
-                  <FaUsersGear />
+                  <FaUsersGear className="text-2xl" />
                   <div className="flex justify-between w-full items-center">
                     <span className="text-[15px] ml-4 text-gray-200 font-bold">
                       Admin Management
@@ -156,7 +157,7 @@ const Sidebar = () => {
                   className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
                   onClick={() => toggleDropdown(2)}
                 >
-                  <FaPeopleRoof />
+                  <FaPeopleRoof className="text-2xl" />
                   <div className="flex justify-between w-full items-center">
                     <span className="text-[15px] ml-4 text-gray-200 font-bold">
                       Team Management
@@ -195,7 +196,7 @@ const Sidebar = () => {
                   className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
                   onClick={() => toggleDropdown(3)}
                 >
-                  <FaPeopleRoof />
+                  <GrServices className="text-2xl" />
                   <div className="flex justify-between w-full items-center">
                     <span className="text-[15px] ml-4 text-gray-200 font-bold">
                       Service Management

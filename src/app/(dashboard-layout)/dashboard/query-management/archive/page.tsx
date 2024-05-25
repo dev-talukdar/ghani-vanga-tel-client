@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
 import {
   useDeleteQueryMutation,
   useGetMarkedQueryQuery,
-} from '@/redux/features/query/queryApi';
-import React from 'react';
-import { FaTrash } from 'react-icons/fa';
-import Swal from 'sweetalert2';
+} from "@/redux/features/query/queryApi";
+import React from "react";
+import { FaTrash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 type TQuery = {
   _id: string;
@@ -30,20 +30,20 @@ const Archive = () => {
 
   const handleDelete = (id: string) => {
     Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "You won't be able to revert this!",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
         await deleteQuery(id);
         Swal.fire({
-          title: 'Deleted!',
-          text: 'Your query has been deleted.',
-          icon: 'success',
+          title: "Deleted!",
+          text: "Your query has been deleted.",
+          icon: "success",
         });
       }
     });

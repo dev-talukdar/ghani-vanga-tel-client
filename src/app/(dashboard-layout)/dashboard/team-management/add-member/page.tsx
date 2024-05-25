@@ -1,8 +1,8 @@
-'use client';
-import { useCreateMemberMutation } from '@/redux/features/team/teamApi';
-import React from 'react';
-import { FieldValues, useForm } from 'react-hook-form';
-import { toast } from 'sonner';
+"use client";
+import { useCreateMemberMutation } from "@/redux/features/team/teamApi";
+import React from "react";
+import { FieldValues, useForm } from "react-hook-form";
+import { toast } from "sonner";
 const image_upload_token = process.env.NEXT_PUBLIC_image_upload_token;
 console.log(image_upload_token);
 
@@ -12,13 +12,13 @@ const AddMember = () => {
   const image_upload_url = `https://api.imgbb.com/1/upload?key=${image_upload_token}`;
 
   const onSubmit = (data: FieldValues) => {
-    console.log('Form Data Submitted:', data);
-    const toastId = toast.loading('Creating member...');
+    console.log("Form Data Submitted:", data);
+    const toastId = toast.loading("Creating member...");
 
     const formData = new FormData();
-    formData.append('image', data.profilePhoto[0]);
+    formData.append("image", data.profilePhoto[0]);
     fetch(image_upload_url, {
-      method: 'POST',
+      method: "POST",
       body: formData,
     })
       .then((res) => res.json())
@@ -39,14 +39,14 @@ const AddMember = () => {
                 duration: 2000,
               });
             } else {
-              toast.success('Member Created!', {
+              toast.success("Member Created!", {
                 id: toastId,
                 duration: 2000,
               });
               reset();
             }
           } catch (error) {
-            toast.error('Something went wrong', {
+            toast.error("Something went wrong", {
               id: toastId,
               duration: 2000,
             });
@@ -61,25 +61,25 @@ const AddMember = () => {
       <form className="lg:pe-10" onSubmit={handleSubmit(onSubmit)}>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3 my-5">
           <input
-            {...register('name')}
+            {...register("name")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Name"
           />
           <input
-            {...register('designation')}
+            {...register("designation")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Designation"
           />
           <input
-            {...register('email')}
+            {...register("email")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Email Address"
           />
           <input
-            {...register('phoneNumber')}
+            {...register("phoneNumber")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Mobile Number"
@@ -87,43 +87,43 @@ const AddMember = () => {
         </div>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3 my-5">
           <input
-            {...register('education')}
+            {...register("education")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Academic Degree"
           />
           <input
-            {...register('address')}
+            {...register("address")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Present Address"
           />
           <input
-            {...register('linkedInProfile')}
+            {...register("linkedInProfile")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Linkedin URL"
           />
           <input
-            {...register('facebookProfile')}
+            {...register("facebookProfile")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Facebook URL"
           />
           <input
-            {...register('twitterProfile')}
+            {...register("twitterProfile")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Twitter URL"
           />
           <input
-            {...register('startDate')}
+            {...register("startDate")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Joining Date"
           />
           <input
-            {...register('profilePhoto')}
+            {...register("profilePhoto")}
             className="w-full bg-[#f8f8f8] border border-slate-3 text-gray-900 mt-2 p-4 rounded-lg focus:outline-none focus:shadow-outline"
             type="file"
             placeholder="Select profile photo"

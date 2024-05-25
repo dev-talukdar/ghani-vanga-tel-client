@@ -1,7 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit';
-import registerReducer from './features/register/registerSlice';
-import { baseApi } from './api/baseApi';
-import authReducer from './features/auth/authSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import registerReducer from "./features/register/registerSlice";
+import { baseApi } from "./api/baseApi";
+import authReducer from "./features/auth/authSlice";
 import {
   persistStore,
   persistReducer,
@@ -11,12 +11,13 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 const persistsConfig = {
-  key: 'auth',
+  key: "auth",
   storage,
+  blacklist: ["auth"],
 };
 
 const persistedAuthReducer = persistReducer(persistsConfig, authReducer);

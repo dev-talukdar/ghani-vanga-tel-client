@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useGetAllServiceQuery } from '@/redux/features/serviceApi/serviceApi';
-import { TService } from '@/redux/type/common';
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
+import { useGetAllServiceQuery } from "@/redux/features/serviceApi/serviceApi";
+import { TService } from "@/redux/type/common";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 const ServicesPage = () => {
   const { data: services, isFetching } = useGetAllServiceQuery(undefined);
 
   const truncate = (str: any, length: any) => {
     if (str.length <= length) return str;
-    return str.slice(0, length) + '...';
+    return str.slice(0, length) + "...";
   };
 
   return (
@@ -43,8 +43,8 @@ const ServicesPage = () => {
             <div className="mt-10">
               <div className="flex justify-between items-center">
                 <h3 className="text-2xl font-semibold mb-2">
-                  {' '}
-                  {service.title}{' '}
+                  {" "}
+                  {service.title}{" "}
                 </h3>
               </div>
               <p className="mb-6 text-slate-800">

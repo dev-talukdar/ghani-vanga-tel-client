@@ -1,12 +1,9 @@
-'use client';
-import QueryModal from '@/app/components/Dashboard/QueryModal';
-import Loader from '@/app/components/Shared/Loader/Loader';
-import {
-  useGetAllQueryQuery,
-  useUpdateQueryMutation,
-} from '@/redux/features/query/queryApi';
-import React, { useState } from 'react';
-import { toast } from 'sonner';
+"use client";
+import QueryModal from "@/app/components/Dashboard/QueryModal";
+import Loader from "@/app/components/Shared/Loader/Loader";
+import {  useGetAllQueryQuery,  useUpdateQueryMutation,} from "@/redux/features/query/queryApi";
+import React, { useState } from "react";
+import { toast } from "sonner";
 
 type TQuery = {
   _id: string;
@@ -37,7 +34,7 @@ const Message = () => {
   };
 
   const handleMark = async (id: string) => {
-    const toastId = toast.loading('Updating...');
+    const toastId = toast.loading("Updating...");
     try {
       const res: any = await updateMark(id);
       if (res?.error) {
@@ -46,33 +43,32 @@ const Message = () => {
           duration: 2000,
         });
       } else {
-        toast.success('Marked successful!', {
+        toast.success("Marked successful!", {
           id: toastId,
           duration: 2000,
         });
         refetch();
       }
     } catch (error) {
-      toast.error('Something went wrong', { id: toastId, duration: 2000 });
+      toast.error("Something went wrong", { id: toastId, duration: 2000 });
     }
   };
 
   if (isLoading) {
     <Loader />;
   }
-  // TOOD: refetch ta kaj korano lagbe, karon, refresh chara data paina.
-  // TOOD: open button press korle, jei modal open hoi, sekhan thekei mark read and delete er kaj kora
+  
   return (
     <div className="col-span-3">
       <div className="overflow-x-auto ">
         <table className="min-w-[90%] shadow-md  border mx-auto border-gray-100  my-6">
           <thead>
             <tr className="bg-[#333333] text-white">
-              <th className="py-3 px-6 text-left border-b">SL NO</th>
-              <th className="py-3 px-6 text-left border-b">Name</th>
-              <th className="py-3 px-6 text-left border-b">Email</th>
-              <th className="py-4 px-6 text-lg border-b text-end">Action</th>
-              <th className="py-4 px-6 text-lg border-b text-end">Mark</th>
+              <th className="py-3 px-6 text-left  lg:block hidden">SL NO</th>
+              <th className="py-3 px-6 text-left ">Name</th>
+              <th className="py-3 px-6 text-left  lg:block hidden">Email</th>
+              <th className="py-4 px-6 text-lg  text-end">Action</th>
+              <th className="py-4 px-6 text-lg  text-end lg:block hidden">Mark</th>
             </tr>
           </thead>
           <tbody>
@@ -81,10 +77,10 @@ const Message = () => {
                 key={query._id}
                 className="hover:bg-gray-50 transition duration-300"
               >
-                <td className="py-4 px-6 border-b">{i + 1} </td>
-                <td className="py-4 px-6 border-b">{query?.name}</td>
-                <td className="py-4 px-6 border-b">{query?.email}</td>
-                <td className="py-4 px-6 border-b text-end">
+                <td className="py-4 px-6  lg:block hidden">{i + 1} </td>
+                <td className="py-4 px-6  ">{query?.name}</td>
+                <td className="py-4 px-6  lg:block hidden">{query?.email}</td>
+                <td className="py-4 px-6  text-end">
                   <button
                     onClick={() => openModal(i)}
                     className="rounded-md bg-indigo-500 px-5 py-[6px] text-white"
@@ -92,7 +88,7 @@ const Message = () => {
                     Open
                   </button>
                 </td>
-                <td className="py-4 px-6 border-b text-end">
+                <td className="py-4 px-6  text-end lg:block hidden">
                   <button
                     onClick={() => handleMark(query._id)}
                     className=" text-blue-500"
@@ -117,3 +113,6 @@ const Message = () => {
 };
 
 export default Message;
+
+// TOOD: refetch ta kaj korano lagbe, karon, refresh chara data paina.
+  // TOOD: open button press korle, jei modal open hoi, sekhan thekei mark read and delete er kaj kora

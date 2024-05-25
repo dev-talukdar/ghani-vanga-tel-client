@@ -1,24 +1,24 @@
-'use client';
-import { useGetServiceQuery } from '@/redux/features/serviceApi/serviceApi';
-import Image from 'next/image';
-import React from 'react';
+"use client";
+import { useGetServiceQuery } from "@/redux/features/serviceApi/serviceApi";
+import Image from "next/image";
+import React from "react";
 
 const ServiceDetailsPage = ({ params }: any) => {
   const { data: service } = useGetServiceQuery(params.id);
   console.log(service);
 
   const splitText = (text: any) => {
-    const sentences = text.split('. ');
+    const sentences = text.split(". ");
     const groups: any = [];
-    let currentGroup = '';
+    let currentGroup = "";
 
     sentences.forEach((sentence: any, index: any) => {
-      currentGroup += sentence + '. ';
+      currentGroup += sentence + ". ";
 
       // After every third sentence or if it's the last sentence
       if ((index + 1) % 3 === 0 || index === sentences.length - 1) {
         groups.push(currentGroup.trim());
-        currentGroup = '';
+        currentGroup = "";
       }
     });
 
@@ -26,8 +26,8 @@ const ServiceDetailsPage = ({ params }: any) => {
   };
 
   // Splitting description1 and description2 into groups
-  const description1Groups = splitText(service?.data?.description1 || '');
-  const description2Groups = splitText(service?.data?.description2 || '');
+  const description1Groups = splitText(service?.data?.description1 || "");
+  const description2Groups = splitText(service?.data?.description2 || "");
 
   return (
     <div className="max-w-[1200px] mx-auto px-4">

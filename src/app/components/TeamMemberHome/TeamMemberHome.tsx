@@ -1,30 +1,29 @@
-'use client';
-import { TTeam } from '@/app/(with-layout)/our-team/page';
-import { useGetAllTeamMemberQuery } from '@/redux/features/team/teamApi';
-import { MdOutlineEmail, MdLocalPhone, MdLocationOn } from 'react-icons/md';
-import Image from 'next/image';
-import TeamSocialMedia from '../SocialMedia/TeamSocialMedia';
-import Link from 'next/link';
+"use client";
+import { TTeam } from "@/app/(with-layout)/our-team/page";
+import { useGetAllTeamMemberQuery } from "@/redux/features/team/teamApi";
+import { MdOutlineEmail, MdLocalPhone, MdLocationOn } from "react-icons/md";
+import Image from "next/image";
+import TeamSocialMedia from "../SocialMedia/TeamSocialMedia";
+import Link from "next/link";
 
 const TeamMemberHome = () => {
   const { data: members, isFetching } = useGetAllTeamMemberQuery(undefined);
   return (
     <div className="w-full max-w-[1200px] mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24  ">
         {members?.data?.slice(0, 4).map((member: TTeam) => (
           <div
             key={member._id}
-            className="lg:flex justify-center items-center gap-3 mx-auto  text-slate-500 lg:p-2 "
+            className="lg:flex justify-center items-center gap-3 mx-auto  text-slate-500 md:p-0 border border-slate-500 p-4 "
           >
             <div className="w-80 h-96 relative">
-              {' '}
               <Image
                 src={member.profilePhoto}
                 alt={member.name}
                 layout="fill"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover"
-              />{' '}
+              />{" "}
             </div>
             <div>
               <p className="text-xl font-bold text-slate-600">{member.name}</p>
