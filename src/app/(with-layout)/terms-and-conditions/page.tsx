@@ -91,7 +91,7 @@ const TermsConditions = () => {
       <p className="text-justify text-slate-600  ">
         If you have any questions or concerns regarding these terms and
         conditions, please contact us at{" "}
-        <span className=" text-yellow-400">support@enaema.com</span>.
+        <span className=" text-yellow-400">support@ebeaconinsight.com</span>.
       </p>    
     
     </div>
