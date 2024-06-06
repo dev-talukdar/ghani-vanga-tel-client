@@ -31,7 +31,7 @@ const Navbar = () => {
           <div className="bg-mobileMenu  px-6 py-4">
             <div className="container mx-auto flex items-center justify-between">
               <p className="text-white font-bold text-xl">
-                Beacon <span className="text-teal-600">Insight</span>
+                Ghani <span className="text-teal-600">Vanga</span>
               </p>
               <ul className="hidden w-8/12 md:flex items-center justify-center space-x-8">
                 <li className="text-white hover:text-teal-600 ">

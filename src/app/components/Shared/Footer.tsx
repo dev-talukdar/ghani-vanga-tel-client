@@ -45,7 +45,7 @@ const Footer = () => {
             <p className="uppercase mb-6">Contact us</p>
             <p className="  flex  items-center gap-2">
               <MdOutlineEmail className=" text-xl" />
-              support@beaconinsight.com
+              support@ghanivanga.com
             </p>
             <p className="  flex   items-center gap-2">
               <MdLocalPhone className="text-xl" /> 01926 080 600
